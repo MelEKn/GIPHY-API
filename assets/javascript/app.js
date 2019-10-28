@@ -21,3 +21,14 @@ function renderButtons(){
     }
 
 }
+
+console.log(this);
+var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + topics[0] + "&limit=10&apikey=bSgTMFxA6jmewtl9NzOw5IkASCqhn5sI";
+
+$.ajax({
+    url: queryURL,
+    method: "GET"
+  }).then(function(response) {
+
+    console.log(response);
+  });
