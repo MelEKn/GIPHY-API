@@ -31,7 +31,10 @@ var emotion = $(this).val();
 
 console.log("emotion is " + emotion);
 
-var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + emotion + "&limit=10&apikey=bSgTMFxA6jmewtl9NzOw5IkASCqhn5sI";
+// var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + emotion + "&limit=10&apikey=bSgTMFxA6jmewtl9NzOw5IkASCqhn5sI";
+
+var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + emotion + "&api_key=bSgTMFxA6jmewtl9NzOw5IkASCqhn5sI&limit=10";
+
 
 $.ajax({
     url: queryURL,
@@ -49,9 +52,13 @@ $.ajax({
 
 
         var gifName = response.data[i].title;
+        var gifAnimated = response.data[i].images.fixed_height.url;
+
+        console.log("gifAnimated is " + gifAnimated);
 
         newDiv.append("Title: " + gifName);
-        newDiv.append("<img src='http://media0.giphy.com/media/" + response.data[i].id + "/200.gif'><br/>");
+        // newDiv.append("<img src='http://media0.giphy.com/media/" + response.data[i].id + "/200.gif'><br/>");
+        newDiv.append("<img src = '" + gifAnimated + "'><br/>");
     }
 
     $("#gifs-view").html(newDiv);
