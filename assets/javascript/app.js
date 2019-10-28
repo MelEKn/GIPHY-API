@@ -60,7 +60,7 @@ $("#add-giphy").on("click", function (event) {
     console.log("giphy is " + giphy)
 
     // The movie from the textbox is then added to our array
-    // movies.push(movie);
+    topics.push(giphy);
 
     // Calling renderButtons which handles the processing of our movie array
     renderButtons();
