@@ -37,17 +37,31 @@ $.ajax({
     var newDiv = $("<div>");
 
     //runs a for loop to go through all 10 responses
-    for (var i = 0; i < 10; i++) {
+    for (var i = 0; i < 5; i++) {
 
 
         var gifName = response.data[i].title;
 
         newDiv.append("Title: " + gifName);
-        newDiv.append("<img src='http://media0.giphy.com/media/" + response.data[i].id + "/200.gif'>");
-
-
-        $("#gifs-view").html(newDiv);
+        newDiv.append("<img src='http://media0.giphy.com/media/" + response.data[i].id + "/200.gif'><br/>");
     }
 
+    $("#gifs-view").html(newDiv);
 
+});
+
+// This function handles events where the Add a Giphy button is clicked
+$("#add-giphy").on("click", function (event) {
+    event.preventDefault();
+    console.log("The onclick for add-giphy worked");
+    // This line of code will grab the input from the textbox
+    var giphy = $("#giphy-input").val().trim();
+
+    console.log("giphy is " + giphy)
+
+    // The movie from the textbox is then added to our array
+    // movies.push(movie);
+
+    // Calling renderButtons which handles the processing of our movie array
+    renderButtons();
 });
