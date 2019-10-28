@@ -31,4 +31,14 @@ $.ajax({
   }).then(function(response) {
 
     console.log(response);
+
+    //creates a div to hold the gif
+
+    var newDiv = $("<div>");
+    var gifName = response.data[0].title;
+
+    newDiv.append("Title: " + gifName);
+
+    $("#gifs-view").html(newDiv);
+
   });
