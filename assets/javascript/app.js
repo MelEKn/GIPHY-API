@@ -22,8 +22,16 @@ function renderButtons() {
 
 }
 
+ // displayGifs function re-renders the HTML to display the appropriate content
+function displayGifs(){
+
 console.log(this);
-var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + topics[0] + "&limit=10&apikey=bSgTMFxA6jmewtl9NzOw5IkASCqhn5sI";
+
+var emotion = $(this).val();
+
+console.log("emotion is " + emotion);
+
+var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + emotion + "&limit=10&apikey=bSgTMFxA6jmewtl9NzOw5IkASCqhn5sI";
 
 $.ajax({
     url: queryURL,
@@ -49,6 +57,7 @@ $.ajax({
     $("#gifs-view").html(newDiv);
 
 });
+}
 
 // This function handles events where the Add a Giphy button is clicked
 $("#add-giphy").on("click", function (event) {
@@ -65,3 +74,6 @@ $("#add-giphy").on("click", function (event) {
     // Calling renderButtons which handles the processing of our movie array
     renderButtons();
 });
+
+     // Adding click event listeners to all elements with a class of "giphy"
+     $(document).on("click", ".giphy", displayGifs);
