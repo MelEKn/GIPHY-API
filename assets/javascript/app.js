@@ -4,13 +4,13 @@ var topics = ["happy", "sad", "confused", "excited", "dubious", "relaxed", "slee
 
 renderButtons();
 
-function renderButtons(){
+function renderButtons() {
 
     //empty the buttons from the html
     $("#buttonList").empty();
-    
+
     //looping through the array of topics (emotions)
-    for(var i=0; i<topics.length; i++){
+    for (var i = 0; i < topics.length; i++) {
 
         //dynamically generate buttons for each emotion in the array
         var feeling = $("<button>");
@@ -28,17 +28,26 @@ var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + topics[0] + "&limit=1
 $.ajax({
     url: queryURL,
     method: "GET"
-  }).then(function(response) {
+}).then(function (response) {
 
     console.log(response);
 
     //creates a div to hold the gif
 
     var newDiv = $("<div>");
-    var gifName = response.data[0].title;
 
-    newDiv.append("Title: " + gifName);
+    //runs a for loop to go through all 10 responses
+    for (var i = 0; i < 10; i++) {
 
-    $("#gifs-view").html(newDiv);
 
-  });
+        var gifName = response.data[i].title;
+
+        newDiv.append("Title: " + gifName);
+        newDiv.append("<img src='http://media0.giphy.com/media/" + response.data[i].id + "/200.gif'>");
+
+
+        $("#gifs-view").html(newDiv);
+    }
+
+
+});
