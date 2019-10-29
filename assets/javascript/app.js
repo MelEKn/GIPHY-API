@@ -54,14 +54,17 @@ function displayGifs() {
             var gifName = response.data[i].title;
             var gifAnimated = response.data[i].images.fixed_height.url;
             var gifStill = response.data[i].images.fixed_height_still.url;
+            var rating = response.data[i].rating;
 
             console.log("gifAnimated is " + gifAnimated);
 
-            newDiv.append("Title: " + gifName);
+            newDiv.append("Title: " + gifName + "<br />");
             // newDiv.append("<img src='http://media0.giphy.com/media/" + response.data[i].id + "/200.gif'><br/>");
             //appending the html for the gif to the new div
 
             newDiv.append("<img src = '" + gifAnimated + "' data-still='" + gifStill + "' data-animate='" + gifAnimated + "' data-state='animated' class='gif'><br/>");
+
+            newDiv.append("Rating: " + rating + "<br/> <br/>");
         }
 
         $("#gifs-view").html(newDiv);
