@@ -62,10 +62,11 @@ function displayGifs() {
             // newDiv.append("<img src='http://media0.giphy.com/media/" + response.data[i].id + "/200.gif'><br/>");
             //appending the html for the gif to the new div
 
-            newDiv.append("<img src = '" + gifAnimated + "' data-still='" + gifStill + "' data-animate='" + gifAnimated + "' data-state='animated' class='gif'><br/>");
+            newDiv.append("<img src = '" + gifStill + "' data-still='" + gifStill + "' data-animate='" + gifAnimated + "' data-state='still' class='gif'><br/>");
 
             newDiv.append("Rating: " + rating + "<br/> <br/>");
         }
+           
 
         $("#gifs-view").html(newDiv);
 
