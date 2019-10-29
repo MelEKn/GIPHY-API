@@ -53,12 +53,13 @@ $.ajax({
 
         var gifName = response.data[i].title;
         var gifAnimated = response.data[i].images.fixed_height.url;
+        var gifStill =response.data[i].images.fixed_height_still.url;
 
         console.log("gifAnimated is " + gifAnimated);
 
         newDiv.append("Title: " + gifName);
         // newDiv.append("<img src='http://media0.giphy.com/media/" + response.data[i].id + "/200.gif'><br/>");
-        newDiv.append("<img src = '" + gifAnimated + "'><br/>");
+        newDiv.append("<img src = '" + gifAnimated + "' data-still='" + gifStill + "' data-animate='" + gifAnimated + "' data-state='animated' class='gif'><br/>");
     }
 
     $("#gifs-view").html(newDiv);
