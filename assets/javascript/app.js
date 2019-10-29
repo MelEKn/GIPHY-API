@@ -48,13 +48,13 @@ function displayGifs() {
         var newDiv = $("<div>");
 
         //runs a for loop to go through all 10 responses
-        for (var i = 0; i < 5; i++) {
+        for (var i = 0; i < 10; i++) {
 
 
             var gifName = response.data[i].title;
             var gifAnimated = response.data[i].images.fixed_height.url;
             var gifStill = response.data[i].images.fixed_height_still.url;
-            var rating = response.data[i].rating;
+            var rating = response.data[i].rating.toUpperCase();
 
             console.log("gifAnimated is " + gifAnimated);
 
