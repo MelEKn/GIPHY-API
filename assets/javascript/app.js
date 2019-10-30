@@ -13,7 +13,7 @@ function renderButtons() {
     for (var i = 0; i < topics.length; i++) {
 
         //dynamically generate buttons for each emotion in the array
-        var feeling = $("<button>");
+        var feeling = $("<button class='button'>");
         feeling.addClass("giphy");
         feeling.text(topics[i]);
         feeling.val(topics[i]);
